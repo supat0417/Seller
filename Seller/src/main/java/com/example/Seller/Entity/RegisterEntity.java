@@ -5,12 +5,14 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "merchant")
 public class RegisterEntity {
     @Id
-    private int merchant_id;
+    private Integer merchant_id;
 
     @JsonProperty("merchant_name")
     private String merchant_name;
