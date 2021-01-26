@@ -1,5 +1,6 @@
 package com.example.Seller.Service;
 
+import com.example.Seller.Entity.PaymentEntity;
 import com.example.Seller.Entity.ProfileEntity;
 import com.example.Seller.Repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,4 +83,18 @@ public class ProfileServiceImpl implements ProfileService{
         return profile;
     }
 
+    @Override
+    public PaymentEntity getPaymentById(String id) {
+
+        if(id == null || id.length() < 0)
+        {
+            return null;
+        }
+        Optional<ProfileEntity> profile = profileRepository.findById(id);
+        if(profile.isEmpty())
+        {
+            return null;
+        }
+        return profile.get().getPayment();
+    }
 }

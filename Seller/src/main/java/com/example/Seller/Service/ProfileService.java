@@ -1,5 +1,6 @@
 package com.example.Seller.Service;
 
+import com.example.Seller.Entity.PaymentEntity;
 import com.example.Seller.Entity.ProfileEntity;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public interface ProfileService {
 
      void DeleteProfileById(String id);
 
-
      ProfileEntity updateProfileById(String id, String pic, String fname, String lname, String email, Integer tel);
+
+     PaymentEntity getPaymentById(String id);
 }

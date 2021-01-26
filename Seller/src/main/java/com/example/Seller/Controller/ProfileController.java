@@ -1,5 +1,6 @@
 package com.example.Seller.Controller;
 
+import com.example.Seller.Entity.PaymentEntity;
 import com.example.Seller.Entity.ProfileEntity;
 import com.example.Seller.Service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,20 @@ public class ProfileController {
 
     @Autowired
     public ProfileService profileService;
+
+    @GetMapping(path = "/getpayment/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PaymentEntity> getPaymentById(@PathVariable String id)
+    {
+        PaymentEntity response = profileService.getPaymentById(id);
+        if(response == null)
+        {
+            return ResponseEntity.notFound().build();
+        }
+        else
+        {
+            return ResponseEntity.ok(response);
+        }
+    }
 
     @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProfileEntity> GetProfileById(@PathVariable String id)
