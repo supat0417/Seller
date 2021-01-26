@@ -26,4 +26,4 @@ public class ProductEntity {
     public void setProduct_status(String product_status) {
         this.product_status = product_status;
     }
-}
+}//
