@@ -28,5 +28,5 @@ public class ProfileEntity {
     private String email;
     @OneToOne(cascade = {CascadeType.ALL})
     private PaymentEntity payment;
-    private String tel;
+    private Integer tel;
 }

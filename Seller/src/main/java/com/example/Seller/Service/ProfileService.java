@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProfileService {
-     Optional<ProfileEntity> GetProfileById(String id);
+     ProfileEntity GetProfileById(String id);
 
-     void AddProfile(ProfileEntity profile);
+     ProfileEntity AddProfile(ProfileEntity profile);
 
      List<ProfileEntity> GetAllProfile();
 
      void DeleteProfileById(String id);
+
+
+     ProfileEntity updateProfileById(String id, String pic, String fname, String lname, String email, Integer tel);
 }
