@@ -2,9 +2,12 @@ package com.example.Seller.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
+@Entity
 public class RegisterEntity {
     @Id
     private int merchant_id;

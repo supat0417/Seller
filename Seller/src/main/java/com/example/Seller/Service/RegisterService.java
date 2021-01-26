@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
 public interface RegisterService {
     ResponseEntity<RegisterEntity> saveMerchant(RegisterEntity registerEntity);
 
