@@ -16,6 +16,18 @@ public class LoginEntity {
     @Column(nullable = false,length = 50)
     private String password;
 
+    public LoginEntity() {
+
+    }
+
+    public LoginEntity(Integer id, String firstname, String lastname, String email, String password) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
