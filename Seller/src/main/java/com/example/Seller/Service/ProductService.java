@@ -21,15 +21,15 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void AddProducts(ProductEntity productEntity) {
-        productRepository.save(productEntity);
+    public ProductEntity AddProducts(ProductEntity productEntity) {
+        return productRepository.save(productEntity);
     }
 
     public void DeleteProduct(Integer product_id) {
         productRepository.deleteById(product_id);
     }
 
-    public void UpdateProducts(Integer product_id, String product_name, String product_picture, Integer product_price, Integer product_unit) {
+    public ProductEntity UpdateProducts(Integer product_id, String product_name, String product_picture, Integer product_price, Integer product_unit) {
         ProductEntity productEntity = productRepository.findById(product_id).orElseThrow(() -> new IllegalStateException(
                 "student with id" + product_id + "does not exist" ));
 
@@ -38,15 +38,15 @@ public class ProductService {
         productEntity.setProduct_price(product_price);
         productEntity.setProduct_unit(product_unit);
 
-        productRepository.save(productEntity);
+        return productRepository.save(productEntity);
     }
 
-    public void UpdateUnits(Integer product_id, Integer product_unit) {
+    public ProductEntity UpdateUnits(Integer product_id, Integer product_unit) {
         ProductEntity productEntity = productRepository.findById(product_id).orElseThrow(() -> new IllegalStateException(
                 "student with id" + product_id + "does not exist" ));
 
         productEntity.setProduct_unit(product_unit);
 
-        productRepository.save(productEntity);
+        return productRepository.save(productEntity);
     }
 }

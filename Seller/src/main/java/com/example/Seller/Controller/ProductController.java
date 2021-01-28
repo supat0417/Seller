@@ -24,8 +24,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public void AddProduct (@RequestBody ProductEntity productEntity){
-        productService.AddProducts(productEntity);
+    public ProductEntity AddProduct (@RequestBody ProductEntity productEntity){
+        ProductEntity product = productService.AddProducts(productEntity);
+        return product ;
     }
 
     @DeleteMapping(path = "/{product_id}")
@@ -34,18 +35,21 @@ public class ProductController {
     }
 
     @PutMapping(path = "/{product_id}")
-    public void UpdateProduct(@PathVariable Integer product_id,
-                              @RequestParam String product_name,
-                              @RequestParam String product_picture,
-                              @RequestParam Integer product_price,
-                              @RequestParam Integer product_unit){
-        productService.UpdateProducts(product_id,product_name,product_picture,product_price,product_unit);
+    public ProductEntity UpdateProduct(@PathVariable Integer product_id,
+                                       @RequestParam String product_name,
+                                       @RequestParam String product_picture,
+                                       @RequestParam Integer product_price,
+                                       @RequestParam Integer product_unit){
+        ProductEntity product = productService.UpdateProducts(product_id,product_name,product_picture,product_price,product_unit);
+        return product ;
+
     }
 
     @PutMapping(path = "updateunit/{product_id}")
-    public void UpdateUnit(@PathVariable Integer product_id,
-                          @RequestParam Integer product_unit){
-        productService.UpdateUnits(product_id,product_unit);
+    public ProductEntity UpdateUnit(@PathVariable Integer product_id,
+                                    @RequestParam Integer product_unit){
+        ProductEntity product = productService.UpdateUnits(product_id,product_unit);
+        return product;
     }
 
 }

@@ -2,6 +2,8 @@ package com.example.Seller.Entity;
 
 import lombok.Data;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 public class ProductEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer product_id;
     private String product_name;
     private String product_picture;
